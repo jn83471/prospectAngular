@@ -1,0 +1,24 @@
+<p>Nombre: {{get()?.nombre}}</p>
+<p>Calle: {{get()?.calle}}</p>
+<p>Número: {{get()?.numero}}</p>
+<p>Colonia: {{get()?.colonia}}</p>
+<p>Código postal: {{get()?.cp}}</p>
+<p>Email: {{get()?.email}}</p>
+<p>Teléfono: {{get()?.phone}}</p>
+<p>RFC: {{get()?.rfc}}</p>
+<p>Puesto: {{get()?.has_puesto?.display_name}}</p>
+
+<p *ngIf="get()?.Motive!=''">Motivo: {{get()?.Motive}}
+<pre></pre>
+<ul class="list-group">
+  <li class="list-group-item position-relative overflow-hidden" *ngFor="let item of get()?.hasfiles" style="text-overflow: ellipsis;">{{item.name}} <a
+      href="http://postulates.devspaceprogrammer.com/{{item.src}}" class="position-absolute top-0 end-0 m-2" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+  </li>
+</ul>
+
+<form method="post">
+  <button type="submit" (click)="send('add')" class="btn btn-success" value="acept" name="acept">Autorizar</button>
+  <div class="mt-2">
+    <textarea name="Razor" class="form-control" [(ngModel)]="razor" placeholder="Razón del rachazo"></textarea>
+  </div>
+<button type="submit" class="btn btn-danger mt-1 d-block" (click)="send('delete')" value="reset" name="acept">Rechazar</button>

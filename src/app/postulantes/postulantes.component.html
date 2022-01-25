@@ -1,0 +1,77 @@
+<div class="menu fixed-top">
+  <span class="left"> Home </span>
+  <span class="left"> Categories </span>
+  <span class="left"> Contact </span>
+  <span class="left"> About Us </span>
+
+  <img class="logo" src="https://image.ibb.co/b3tQRK/153297876771137380.png">
+
+  <span class="right"> <a href="/postulantes" class="text-white">Postulantes</a></span>
+  <span class="right"> <a href="/login" class="text-white">Login</a></span>
+  <span class="right"> <a href="/register" class="text-white">Registrar</a></span>
+
+</div>
+
+<div class="container-fluid row mt-5 pt-2">
+  <div class="col-12">
+      <label for="search">Postulantes</label>
+      <input type="text" id="search" placeholder="Buscar postulantes" (keyup.enter)="change(txtbuscar.value)" class="form-control" #txtbuscar>
+  </div>
+</div>
+<div class="container-fluid table-responsive">
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Calle</th>
+      <th scope="col">Número</th>
+      <th scope="col">Colonia</th>
+      <th scope="col">Código postal</th>
+      <th scope="col">Email</th>
+      <th scope="col">Teléfono</th>
+      <th scope="col">Rfc</th>
+      <th scope="col">Puesto</th>
+      <th scope="col">Estatus</th>
+    </tr>
+  </thead>
+  <tbody id="content">
+    <tr *ngFor="let item of get(), let i=index" class="{{(item.Estatus==1)?'bg-success':(item.Estatus==2)?'bg-danger':''}}">
+      <td>
+        <a [routerLink]="['prospects',item.id]">{{item.id}}</a>
+      </td>
+      <td>
+        {{item.nombre}}
+      </td>
+      <td>
+        {{item.calle}}
+      </td>
+      <td>
+        {{item.numero}}
+      </td>
+      <td>
+        {{item.colonia}}
+      </td>
+      <td>
+        {{item.cp}}
+      </td>
+      <td>
+        {{item.email}}
+      </td>
+      <td>
+        {{item.phone}}
+      </td>
+      <td>
+        {{item.rfc}}
+      </td>
+      <td>
+        {{item.has_puesto.display_name}}
+      </td>
+      <td>
+        {{(item.Estatus==0)?"Enviado":(item.Estatus==1)?"Aceptado":"Rechazado"}}
+      </td>
+    </tr>
+  </tbody>
+
+</table>
+</div>

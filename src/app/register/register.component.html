@@ -1,0 +1,195 @@
+<div class="menu fixed-top">
+  <span class="left"> Home </span>
+  <span class="left"> Categories </span>
+  <span class="left"> Contact </span>
+  <span class="left"> About Us </span>
+
+  <img class="logo" src="https://image.ibb.co/b3tQRK/153297876771137380.png">
+
+  <span class="right"> <a href="/postulantes" class="text-white">Postulantes</a></span>
+  <span class="right"> <a href="/login" class="text-white">Login</a></span>
+  <span class="right"> <a href="/register" class="text-white">Registrar</a></span>
+
+</div>
+<div class="container" style="margin-top:70px;">
+
+  <div class="row">
+
+    <div class="col-lg-8 col-lg-offset-2">
+
+      <h1>Contactanos para agendar cualquer sita</h1>
+
+      <p class="lead">Esta no es una página oficial favor de no ingresar datos reales</p>
+
+      <form [formGroup]="form" (onsubmit)="send()">
+        <div class="controls">
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="nombre">Nombre *</label>
+                <input id="nombre" type="text" name="nombre"  formControlName="nombre" class="form-control"placeholder="Favor de ingresar tu nombre.">
+                <div class="help-block with-errors"></div>
+                <div *ngIf="form.controls['nombre'].invalid" class="alert alert-danger" role="alert">
+                  <span *ngIf="form.controls['nombre']?.errors?.['required']">Necesita llenar su nombre</span>
+              </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="app">Apellido Paterno *</label>
+                <input id="app" type="text" name="app" formControlName="app" class="form-control"
+                  placeholder="Favor de ingresar tu apellido paterno." required="required"
+                  data-error="Lastname is required.">
+                  <div *ngIf="form.controls['app'].invalid" class="alert alert-danger" role="alert">
+                    <span *ngIf="form.controls['app']?.errors?.['required']">Necesita llenar su apellido paterno</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_lastname">Apellido Materno *</label>
+                <input id="form_lastname" type="text" name="apm" formControlName="apm" class="form-control"
+                  placeholder="Favor de ingresar tu apellido Materno." required="required"
+                  data-error="Lastname is required.">
+                  <div *ngIf="form.controls['apm'].invalid" class="alert alert-danger" role="alert">
+                    <span *ngIf="form.controls['apm']?.errors?.['required']">Necesita llenar su apellido materno</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input id="email" type="email" name="email" formControlName="email" class="form-control"
+                  placeholder="Favor de ingresar tu apellido Materno." required="required"
+                  data-error="Lastname is required.">
+                  <div *ngIf="form.controls['email'].invalid" class="alert alert-danger" role="alert">
+                    <span *ngIf="form.controls['email']?.errors?.['required']">Necesita un email</span>
+                    <span *ngIf="form.controls['email']?.errors?.['email']">Email no valido</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_email">Calle:</label>
+                <input id="form_email" type="text" name="calle" formControlName="calle" #calle class="form-control"
+                  placeholder="Ingresa la calle donde vives." required="required" data-error="Valid email is required.">
+                  <div *ngIf="form.controls['calle'].invalid" class="alert alert-danger" role="alert">
+                    <span *ngIf="form.controls['calle']?.errors?.['required']">Necesita llenar su calle</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_phone">Número:</label>
+                <input id="form_phone" type="number" name="numero" formControlName="numero" class="form-control"
+                  placeholder="Inserta tu número exterior de casa.">
+                <div *ngIf="form.controls['numero'].invalid" class="alert alert-danger" role="alert">
+                    <span *ngIf="form.controls['numero']?.errors?.['required']">Necesita llenar su calle</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_email">Colonia:</label>
+                <input id="form_email" type="text" name="col" formControlName="col" #col class="form-control" placeholder="Ingresa tu colonia."
+                  required="required" data-error="Valid email is required.">
+                  <div *ngIf="form.controls['col'].invalid" class="alert alert-danger" role="alert">
+                    <span *ngIf="form.controls['col']?.errors?.['required']">Necesita llenar su colonia</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_phone">CP:</label>
+                <input id="form_phone" type="number" name="cp"  formControlName="cp" #cp class="form-control"
+                  placeholder="Ingresa tu código postal.">
+                  <div *ngIf="form.controls['cp'].invalid" class="alert alert-danger" role="alert">
+                    <span *ngIf="form.controls['cp']?.errors?.['required']">Necesita llenar su código postal</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_email">Teléfono:</label>
+                <input id="form_email" type="tel" name="phone" formControlName="phone" #phone class="form-control" placeholder="Ingresa tu teléfono."
+                  required="required" data-error="Valid email is required.">
+                  <div *ngIf="form.controls['phone'].invalid" class="alert alert-danger" role="alert">
+                    <span *ngIf="form.controls['phone']?.errors?.['required']">Necesita llenar su télefono</span>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_phone">RFC:</label>
+                <input id="form_phone" type="text" name="rfc" formControlName="rfc" #rfc class="form-control" placeholder="Rfc">
+                <div *ngIf="form.controls['rfc'].invalid" class="alert alert-danger" role="alert">
+                  <span *ngIf="form.controls['rfc']?.errors?.['required']">Necesita llenar su RFC</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-2 parent-element" id="files">
+            <div class="col-md-12" >
+              <input #chartContainer  (change)="add($event)" type="file" class="d-none" name="test" id="chartContainer" >
+              <label for="chartContainer"  class="btn btn-danger d-block mx-auto"><i class="  fas fa-plus-square"></i></label>
+            </div>
+            <div *ngFor="let item of list" class="col-12 p-5 position-relative text-center temporal"><span class="h5 text-success">
+              {{item.name}}{{item.file}}
+            </span>
+            <small class="d-block">{{item.type}}</small>
+            <input type="text" name="nameFile[]" class="position-absolute bottom-0 start-0 form-control" value="{{item.name}}">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="form_email">Puesto:</label>
+                <select name="puesto" formControlName="puesto" class="form-control" #puesto id="puesto">
+                  <option value="">Elige algún puesto</option>
+                  <option *ngFor="let item of get()" value="{{item.id}}">{{item.display_name}}</option>
+                </select>
+              </div>
+              <div *ngIf="form.controls['puesto'].invalid" class="alert alert-danger" role="alert">
+                <span *ngIf="form.controls['puesto']?.errors?.['required']">Necesita llenar su puesto</span>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="row mt-2">
+            <div class="col-md-12">
+              <input type="submit" class="btn btn-success btn-send" (click)="send()" value="Send message">
+              <div class="alert alert-{{(Estatus)?'success':'danger'}} mt-2" *ngIf="message!=''" role="alert">
+                {{message}}
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-12">
+              <p class="text-muted"><strong>*</strong> These fields are required. Contact form template by <a
+                  href="https://bootstrapious.com" target="_blank">Bootstrapious</a>.</p>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+</div>
+
+
